@@ -22,13 +22,17 @@
                     <input type="text">
                 </label>
                 <label class="item item-input item-stacked-label">
+                    <span class="input-label">End Date</span>
+                    <input type="text">
+                </label>
+                <label class="item item-input item-stacked-label">
                     <span class="input-label">Notes</span>
                     <input type="text">
                 </label>
             </div>
             <div>
-                <button class="button button-positive">Save</button>
-                <button class="button button-positive">Cancel</button>
+                <button class="button button-positive" ng-click="vm.saveTask()">Save</button>
+                <button class="button button-positive" ng-click="vm.cancel()">Cancel</button>
             </div>
     
             

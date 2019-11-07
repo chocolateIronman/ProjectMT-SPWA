@@ -11,22 +11,22 @@
             <div class="list">
                 <label class="item item-input item-stacked-label">
                     <span class="input-label">Name</span>
-                    <input type="text">
+                    <input type="text" placeholder="{{vm.project.name}}">
                 </label>
                 <div class="item item-input-inset">
                     <label class="item item-input-wrapper item-stacked-label">
                         <span class="input-label">Category</span>
-                        <input type="text">
+                        <input type="text" placeholder="{{vm.project.category}}">
                     </label>
                     <button class="button button-small">Add</button>
                 </div>
                 <label class="item item-input item-stacked-label">
                     <span class="input-label">Start Date</span>
-                    <input type="text">
+                    <input type="text" placeholder="{{vm.project.startDate}}">
                 </label>
                 <label class="item item-input item-stacked-label">
                     <span class="input-label">End Date</span>
-                    <input type="text">
+                    <input type="text" placeholder="{{vm.project.endDate}}">
                 </label>
                 <label class="item item-input item-stacked-label item-select">
                     <span class="input-label">Year</span>
@@ -38,12 +38,12 @@
                 </label>
                 <label class="item item-input item-stacked-label">
                     <span class="input-label">Notes</span>
-                    <input type="text">
+                    <input type="text" placeholder="{{vm.project.notes}}">
                 </label>
             </div>
             <div>
-                <button class="button button-positive">Save</button>
-                <button class="button button-positive">Cancel</button>
+                <button class="button button-positive" ng-click='vm.updateProject()'>Save</button>
+                <button class="button button-positive" ng-click='vm.cancel()'>Cancel</button>
             </div>
     
             

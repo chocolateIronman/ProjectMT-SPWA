@@ -1,24 +1,22 @@
 <ion-view>
         <ion-header-bar class="bar-calm" align-title="center">
-            <button class="button icon ion-navicon"></button>
             <h1 class="title">ProjectMT</h1>
-            <button class="button">+</button>
+            
         </ion-header-bar>
         <div class="bar bar-subheader">
-            <h2 class="title"></h2>
-            <h3 class="title">Tasks: </h3>
+            <h2 class="title">{{vm.project.name}} : Task: {{vm.task.name}} </h2>
         </div>
        
         <ion-content class="has-header has-subheader">
     
             <div class="list">
-               <h3 class="light">Start Date: </h3>
-               <h3 class="light">Due Date: </h3>
-               <h3 class="light">End Date: </h3>
-               <h3 class="light">Notes: </h3>
+               <h3 class="dark">Start Date: {{vm.task.startDate}} </h3>
+               <h3 class="dark">Due Date: {{vm.task.dueDate}} </h3>
+               <h3 class="dark">End Date: {{vm.task.endDate}} </h3>
+               <h3 class="dark">Notes: {{vm.task.notes}} </h3>
             </div>
             <div>
-                <button class="button button-positive">Back</button>
+                <button class="button button-positive" ng-click="vm.done()">Back</button>
             </div>
             
         </ion-content>
