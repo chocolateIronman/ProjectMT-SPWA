@@ -19,9 +19,8 @@
                 categories : []
             });
 
-            vm.back = function(){
-                $state.go('projectsList')
-            }
+            
+            
 
             vm.add = function () {
                 console.log("ADDING CATEGORY!!!");

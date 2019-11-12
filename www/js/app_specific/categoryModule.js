@@ -14,7 +14,5 @@
                 controller: 'categoryListCtrl as vm'
             });
 
-            $urlRouterProvider.otherwise('categoryList');
-
         });
 })();

@@ -30,10 +30,7 @@
                 }
             })
 
-            vm.done = function(){
-                $state.go('tasksList');
-            }
-
+          
             var params = $stateParams;
 
             //vm.project = tasksSrvc.getTaskAt(params.selected);

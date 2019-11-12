@@ -35,7 +35,5 @@
             controller: 'taskUpdateCtrl as vm'
         });
 
-        $urlRouterProvider.otherwise('tasksList');
-
     });
 })();

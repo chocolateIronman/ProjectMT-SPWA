@@ -19,9 +19,7 @@
 
             });
 
-            vm.cancel = function(){
-                $state.go('tasksList');
-            }
+            
 
             vm.saveTask = function () {
                 console.log("SAVING TASK!!!");

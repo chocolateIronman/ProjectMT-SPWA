@@ -25,9 +25,7 @@
                 }
             });
 
-            vm.cancel = function(){
-                $state.go("taskView");
-            }
+            
 
             vm.updateTask = function(){
                 console.log("UPDATING TASK!!!")

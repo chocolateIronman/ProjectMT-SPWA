@@ -20,7 +20,7 @@
             });
 
             vm.onItemSelected = function(index){
-                console.log("Project: "+ index);
+                console.log("Task: "+ index);
 
                 //passing parameters into the new state
                 //'selected' is an attribute in a parameter object, defined in the module definition
@@ -32,17 +32,6 @@
                 return vm.tasks.length == 0;
             }
 
-            vm.create = function(){
-                $state.go('taskCreate');
-            }
-
-            vm.update = function(){
-                $state.go('taskUpdate');
-            }
-
-            vm.back = function(){
-                $state.go('projectView')
-            }
 
             //vm.projects = projectSrvc.getTasks();
         }

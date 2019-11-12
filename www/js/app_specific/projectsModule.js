@@ -12,6 +12,7 @@
             url: '/projectsList',
             templateUrl: 'js/app_specific/projectsList.html',
             controller:'projectsListCtrl as vm'
+            
         });
 
         $stateProvider.state('projectView', {
@@ -36,7 +37,7 @@
             controller: 'projectUpdateCtrl as vm'
         });
 
-        $urlRouterProvider.otherwise('projectsList');
+  
 
     });
 

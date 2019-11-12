@@ -26,10 +26,6 @@
                 }
             });
 
-            vm.cancel = function(){
-                $state.go("projectView");
-            }
-
             vm.updateProject = function(){
                 console.log("UPDATING PROJECT!!!")
                 //TODO:Error Handling

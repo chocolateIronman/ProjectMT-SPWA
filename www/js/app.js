@@ -7,7 +7,8 @@ angular.module('starter', [
   'ionic',
   'projectsjs',
   'tasksjs',
-  'categoryjs'
+  'categoryjs',
+  'mainviewjs'
 ])
 
 .run(function($ionicPlatform) {

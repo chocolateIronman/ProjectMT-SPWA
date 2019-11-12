@@ -32,13 +32,7 @@
                 return vm.projects.length == 0;
             }
 
-            vm.create = function(){
-                $state.go('projectCreate');
-            }
-
-            vm.update = function(){
-                $state.go('projectUpdate');
-            }
+            
 
             
 
@@ -46,4 +40,4 @@
 
         }
     }
-) ();
+)();

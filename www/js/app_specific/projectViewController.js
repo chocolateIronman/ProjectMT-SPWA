@@ -28,13 +28,6 @@
                 }
             })
 
-            vm.done = function(){
-                $state.go('projectsList');
-            }
-
-            vm.viewTasks = function(){
-                $state.go('tasksList');
-            }
             var params = $stateParams;
 
             //vm.project = projectsSrvc.getProjectAt(params.selected);

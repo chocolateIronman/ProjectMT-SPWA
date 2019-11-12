@@ -1,15 +1,16 @@
-<ion-view>
-    <ion-header-bar class="bar-calm" align-title="center">
-        <h1 class="title">ProjectMT</h1>
-        <button class="button" ng-click="vm.create()">+</button>
-    </ion-header-bar>
+<ion-view view-title="ProjectMT">
 
-    <ion-content class="has-header">
+        <ion-nav-buttons side="right">
+            <button ui-sref="taskCreate" class="button button-calm icon ion-plus-round"></button>
+        </ion-nav-buttons>
+    
+
+    <ion-content >
         <div class="list" ng-show="!vm.noTasks()">
                 <ion-list class="item item-button-right">
                     <ion-item ng-click="vm.onItemSelected($index)" ng-repeat="task in vm.tasks">
                         {{task.name}}
-                        <button class="button button-positive" ng-click="vm.update()">Edit</button>
+                        <button class="button button-positive" ui-sref="taskUpdate">Edit</button>
                         <button class="button button-positive">Delete</button>
                     </ion-item>
                 </ion-list>
@@ -19,9 +20,6 @@
             <h1 class="dark">There are no existing tasks!</h1>
             <h2 class="dark">Please use the + to add a new task!</h2>
         </div>
-        
-        <div ng-show="vm.noTasks()"> 
-            <button class="button button-positive" ng-click="vm.back()">Back</button>
-        </div>
+
     </ion-content>
 </ion-view>

@@ -1,25 +1,26 @@
-<ion-view>
-    <ion-header-bar class="bar-calm" align-title="center">
-        <button class="button icon ion-navicon"></button>
-        <h1 class="title">ProjectMT</h1>
-        <button class="button" ng-click="vm.create()">+</button>
-    </ion-header-bar>
-       
-    <ion-content class="has-header">
+<ion-view view-title="ProjectMT">
+
+    <ion-nav-buttons side="right">
+        <button ui-sref="projectCreate" class="button button-calm icon ion-plus-round"></button>
+    </ion-nav-buttons>
     
+
+    <ion-content>
+
         <div class="list" ng-show="!vm.noProjects()">
             <ion-list class="item item-button-right">
                 <ion-item ng-click="vm.onItemSelected($index)" ng-repeat="project in vm.projects">
                     {{project.name}}
-                    <button class="button button-positive" ng-click="vm.update()">Edit</button>
+                    <button class="button button-positive" ui-sref="projectUpdate">Edit</button>
                     <button class="button button-positive">Delete</button>
                 </ion-item>
             </ion-list>
         </div>
-    
+
         <div ng-show="vm.noProjects()">
             <h1 class="dark">There are no existing projects!</h1>
             <h2 class="dark">Please use the + to add a new project!</h2>
         </div>
+
     </ion-content>
 </ion-view>

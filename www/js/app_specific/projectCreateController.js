@@ -19,10 +19,6 @@
                 
             });
 
-            vm.cancel = function(){
-                $state.go('projectsList');
-            }
-
             vm.saveProject = function () {
                 console.log("SAVING PROJECT!!!");
                 //TODO: Error Handling
