@@ -9,13 +9,13 @@
         control.$inject = [
             '$state',
             '$stateParams',
-            //'projectsSrvc'
+            'projectsSrvc'
         ];
 
         function control(
             $state,
             $stateParams,
-            //projectsSrvc
+            projectsSrvc
         ) {
             var vm = angular.extend(this, {
                 project : {
@@ -29,8 +29,23 @@
             })
 
             var params = $stateParams;
+            //console.log("PARAMS",params);
 
-            //vm.project = projectsSrvc.getProjectAt(params.selected);
+            projectsSrvc.getProject(params.selected).then(
+                function successCallback(response) {
+                    console.log(response.data[0]);
+
+                    vm.project = response.data[0];
+                    
+                    // this callback will be called asynchronously
+                    // when the response is available
+                },
+                function errorCallback(response) {
+                    console.error(response);
+                    // called asynchronously if an error occurs
+                    // or server returns response with an error status.
+                }
+            );
         }
     }
 )();

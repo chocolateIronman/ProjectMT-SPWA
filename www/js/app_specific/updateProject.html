@@ -8,34 +8,34 @@
             <div class="list">
                 <label class="item item-input item-stacked-label">
                     <span class="input-label">Name</span>
-                    <input type="text" placeholder="{{vm.project.name}}">
+                    <input type="text" ng-model="vm.newProject.ProjectName" placeholder="{{vm.project.ProjectName}}">
                 </label>
                 <div class="item item-input-inset">
                     <label class="item item-input-wrapper item-stacked-label">
                         <span class="input-label">Category</span>
-                        <input type="text" placeholder="{{vm.project.category}}">
+                        <input type="text" ng-model="vm.newProject.ProjectCategory" placeholder="{{vm.project.name}}">
                     </label>
                     <button class="button button-small">Add</button>
                 </div>
                 <label class="item item-input item-stacked-label">
                     <span class="input-label">Start Date</span>
-                    <input type="text" placeholder="{{vm.project.startDate}}">
+                    <input type="text" ng-model="vm.newProject.StartDate" placeholder="{{vm.project.StartDate}}">
                 </label>
                 <label class="item item-input item-stacked-label">
                     <span class="input-label">End Date</span>
-                    <input type="text" placeholder="{{vm.project.endDate}}">
+                    <input type="text" ng-model="vm.newProject.EndDate" placeholder="{{vm.project.EndDate}}">
                 </label>
-                <label class="item item-input item-stacked-label item-select">
+                <label class="item item-input item-stacked-label">
                     <span class="input-label">Year</span>
-                    <select>
-                        <option selected>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                    </select>
+                    <input type="number" ng-model="vm.newProject.ProjectYear" placeholder="{{vm.project.ProjectYear}}"></input>
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Group Name</span>
+                    <input type="text" ng-model="vm.newProject.GroupName" placeholder="{{vm.project.GroupName}}"> 
                 </label>
                 <label class="item item-input item-stacked-label">
                     <span class="input-label">Notes</span>
-                    <input type="text" placeholder="{{vm.project.notes}}">
+                    <input type="text" ng-model="vm.newProject.Notes" placeholder="{{vm.project.Notes}}">
                 </label>
             </div>
             <div>

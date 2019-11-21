@@ -32,9 +32,14 @@
 
         $stateProvider.state('projectUpdate', {
             cache: false,
-            url: '/projectUpdate',
+            url: '/projectUpdate/:projectID',
             templateUrl: 'js/app_specific/updateProject.html',
-            controller: 'projectUpdateCtrl as vm'
+            controller: 'projectUpdateCtrl as vm',
+            resolve: {
+                selectedProject: function($stateParams, projectsSrvc) {
+                    return projectsSrvc.fetchProject($stateParams.projectID)
+                }
+            }
         });
 
   

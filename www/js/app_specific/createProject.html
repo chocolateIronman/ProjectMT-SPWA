@@ -4,39 +4,39 @@
              <h2 class="title">Create Project</h2>
         </div>
        
-        <ion-content >
+        <ion-content class="has-subheader ">
     
             <div class="list">
                 <label class="item item-input item-stacked-label">
                     <span class="input-label">Name</span>
-                    <input type="text">
+                    <input type="text" ng-model="vm.newProject.ProjectName">
                 </label>
                 <div class="item item-input-inset">
                     <label class="item item-input-wrapper item-stacked-label">
                         <span class="input-label">Category</span>
-                        <input type="text">
+                        <input type="text" ng-model="vm.newProject.ProjectCategory">
                     </label>
                     <button class="button button-small">Add</button>
                 </div>
                 <label class="item item-input item-stacked-label">
                     <span class="input-label">Start Date</span>
-                    <input type="text">
+                    <input type="number" ng-model="vm.newProject.StartDate">
                 </label>
                 <label class="item item-input item-stacked-label">
                     <span class="input-label">End Date</span>
-                    <input type="text">
+                    <input type="number" ng-model="vm.newProject.EndDate">
                 </label>
-                <label class="item item-input item-stacked-label item-select">
+                <label class="item item-input item-stacked-label">
                     <span class="input-label">Year</span>
-                    <select>
-                        <option selected>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                    </select>
+                    <input type="number" ng-model="vm.newProject.ProjectYear"></input>
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Group Name</span>
+                    <input type="text" ng-model="vm.newProject.GroupName"> 
                 </label>
                 <label class="item item-input item-stacked-label">
                     <span class="input-label">Notes</span>
-                    <input type="text">
+                    <input type="text" ng-model="vm.newProject.Notes">
                 </label>
             </div>
             <div>
