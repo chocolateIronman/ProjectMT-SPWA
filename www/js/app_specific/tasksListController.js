@@ -8,12 +8,12 @@
 
         control.$inject = [
             '$state',
-            //tasksServc
+            'tasksSrvc'
         ];
 
         function control(
             $state,
-            //tasksSrvc
+            tasksSrvc
         ) {
             var vm = angular.extend(this, {
                 tasks : []
@@ -33,7 +33,7 @@
             }
 
 
-            //vm.projects = projectSrvc.getTasks();
+            
         }
     }
 ) ();
