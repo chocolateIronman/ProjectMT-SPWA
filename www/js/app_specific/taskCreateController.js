@@ -8,25 +8,34 @@
 
         control.$inject = [
             '$state',
-            //'tasksSrvc'
+            '$stateParams',
+            'tasksSrvc'
         ];
 
         function control(
             $state,
-            //tasksSrvc
+            $stateParams,
+            tasksSrvc
         ) {
             var vm = angular.extend(this, {
-
+                newTask:{
+                    
+                }
             });
 
+            var projectid=$stateParams.projectID;
+            vm.newTask.ProjectID=projectid;
+            console.log($stateParams);
+            console.log("ProjectID = " +projectid);
             
 
             vm.saveTask = function () {
                 console.log("SAVING TASK!!!");
+                console.table(vm.newTask);
                 //TODO: Error Handling
-                //tasksSrvc.createTask().then(function(){
-                    //state.go('tasksList');
-                //})
+                tasksSrvc.createTask(vm.newTask).then(function(){
+                    $state.go('tasksList',{projectID: projectid});
+                });
             };
         }
     }

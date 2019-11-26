@@ -8,9 +8,14 @@
         
         $stateProvider.state('tasksList',{
             cache: false,
-            url: '/tasksList',
+            url: '/tasksList/:projectID',
             templateUrl: 'js/app_specific/tasksList.html',
-            controller: 'tasksListCtrl as vm'
+            controller: 'tasksListCtrl as vm',
+            resolve: {
+                selectedProject: function($stateParams, projectsSrvc) {
+                    return projectsSrvc.fetchProject($stateParams.projectID)
+                }
+            }
         });
 
         $stateProvider.state('taskView',{
@@ -23,16 +28,26 @@
 
         $stateProvider.state('taskCreate',{
             cache: false,
-            url: '/taskCreate',
+            url: '/taskCreate/:projectID',
             templateUrl: 'js/app_specific/createTasks.html',
-            controller: 'taskCreateCtrl as vm'
+            controller: 'taskCreateCtrl as vm',
+            resolve: {
+                selectedProject: function($stateParams, projectsSrvc) {
+                    return projectsSrvc.fetchProject($stateParams.projectID)
+                }
+            }
         });
 
         $stateProvider.state('taskUpdate',{
             cache: false,
-            url: '/taskUpdate',
+            url: '/taskUpdate/:taskID',
             templateUrl: 'js/app_specific/updateTask.html',
-            controller: 'taskUpdateCtrl as vm'
+            controller: 'taskUpdateCtrl as vm',
+            resolve: {
+                selectedTask: function($stateParams, tasksSrvc){
+                    return tasksSrvc.fetchTask($stateParams.taskID)
+                }
+            }
         });
 
     });

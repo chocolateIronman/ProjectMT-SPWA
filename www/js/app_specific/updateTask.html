@@ -10,23 +10,23 @@
             <div class="list">
                 <label class="item item-input item-stacked-label">
                     <span class="input-label">Name</span>
-                    <input type="text" placeholder="{{vm.task.name}}">
+                    <input type="text" ng-model="vm.newTask.TaskName" placeholder="{{vm.task.TaskName}}">
                 </label>
                 <label class="item item-input item-stacked-label">
                     <span class="input-label">Start Date</span>
-                    <input type="text" placeholder="{{vm.task.startDate}}">
+                    <input type="number" ng-model="vm.newTask.StartDate" placeholder="{{vm.task.StartDate}}">
                 </label>
                 <label class="item item-input item-stacked-label">
                     <span class="input-label">Due Date</span>
-                    <input type="text" placeholder="{{vm.task.dueDate}}">
+                    <input type="number" ng-model="vm.newTask.DueDate" placeholder="{{vm.task.DueDate}}">
                 </label>
                 <label class="item item-input item-stacked-label">
                     <span class="input-label">End Date</span>
-                    <input type="text" placeholder="{{vm.task.endDate}}">
+                    <input type="number" ng-model="vm.newTask.EndDate" placeholder="{{vm.task.EndDate}}">
                 </label>
                 <label class="item item-input item-stacked-label">
                     <span class="input-label">Notes</span>
-                    <input type="text" placeholder="{{vm.task.notes}}">
+                    <input type="text" ng-model="vm.newTask.Notes" placeholder="{{vm.task.Notes}}">
                 </label>
             </div>
             <div>

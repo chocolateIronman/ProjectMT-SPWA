@@ -9,13 +9,13 @@
         control.$inject = [
             '$state',
             '$stateParams',
-            //'tasksSrvc'
+            'tasksSrvc'
         ];
 
         function control(
             $state,
             $stateParams,
-            //projectsSrvc
+            tasksSrvc
         ) {
             var vm = angular.extend(this, {
                 task : {
@@ -24,16 +24,24 @@
                     dueDate: "due date",
                     endDate: "end date",
                     notes: "no notes"
-                },
-                project : {
-                    name: "no name project"
                 }
             })
 
           
             var params = $stateParams;
+            console.log("PARAMS",params);
 
-            //vm.project = tasksSrvc.getTaskAt(params.selected);
+            tasksSrvc.getTask(params.selected).then(
+                function successCallback(response) {
+                    console.log(response.data[0]);
+
+                    vm.task = response.data[0];
+                },
+                function errorCallback(response) {
+                    console.error(response);
+                    
+                }
+            );
         }
     }
 ) ();

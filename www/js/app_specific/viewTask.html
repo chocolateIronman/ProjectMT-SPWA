@@ -1,16 +1,16 @@
 <ion-view view-title="ProjectMT">
 
         <div class="bar bar-subheader">
-            <h2 class="title">{{vm.project.name}} : Task: {{vm.task.name}} </h2>
+            <h2 class="title">Task: {{vm.task.TaskName}} </h2>
         </div>
        
         <ion-content class="has-header has-subheader">
     
             <div class="list">
-               <h3 class="dark">Start Date: {{vm.task.startDate}} </h3>
-               <h3 class="dark">Due Date: {{vm.task.dueDate}} </h3>
-               <h3 class="dark">End Date: {{vm.task.endDate}} </h3>
-               <h3 class="dark">Notes: {{vm.task.notes}} </h3>
+               <h3 class="dark">Start Date: {{vm.task.StartDate || 'Start date'}} </h3>
+               <h3 class="dark">Due Date: {{vm.task.DueDate || 'Due date'}} </h3>
+               <h3 class="dark">End Date: {{vm.task.EndDate || 'End date'}} </h3>
+               <h3 class="dark">Notes: {{vm.task.Notes || 'Notes'}} </h3>
             </div>
            
             

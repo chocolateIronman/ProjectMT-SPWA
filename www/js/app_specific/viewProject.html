@@ -14,7 +14,7 @@
                <h3 class="dark">Notes: {{vm.project.Notes || 'Notes'}} </h3>
             </div>
             <div>
-                <button class="button button-positive" ui-sref="tasksList">View Tasks</button>
+                <button class="button button-positive" ui-sref="tasksList({projectID: vm.project.id})">View Tasks</button>
             </div>
             
         </ion-content>

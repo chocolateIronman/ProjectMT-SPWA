@@ -1,7 +1,7 @@
 <ion-view view-title="ProjectMT">
 
         <ion-nav-buttons side="right">
-            <button ui-sref="taskCreate" class="button button-calm icon ion-plus-round"></button>
+            <button ui-sref="taskCreate({projectID: vm.projectid})" class="button button-calm icon ion-plus-round"></button>
         </ion-nav-buttons>
     
 
@@ -9,14 +9,14 @@
         <div class="list" ng-show="!vm.noTasks()">
                 <ion-list class="item item-button-right">
                     <ion-item ng-click="vm.onItemSelected($index)" ng-repeat="task in vm.tasks">
-                        {{task.name}}
-                        <button class="button button-positive" ui-sref="taskUpdate">Edit</button>
-                        <button class="button button-positive">Delete</button>
+                        {{task.TaskName}}
+                        <button class="button button-positive" ui-sref="taskUpdate({taskID: task.id})">Edit</button>
+                        <button class="button button-positive" ng-click="vm.deleteTask(task.id)">Delete</button>
                     </ion-item>
                 </ion-list>
         </div>
     
-        <div>
+        <div ng-show="vm.noTasks()">
             <h1 class="dark">There are no existing tasks!</h1>
             <h2 class="dark">Please use the + to add a new task!</h2>
         </div>
