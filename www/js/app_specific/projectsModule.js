@@ -24,7 +24,7 @@
         });
 
         $stateProvider.state('projectCreate', {
-            cache: false,
+            cache: true,
             url: '/projectCreate',
             templateUrl: 'js/app_specific/createProject.html',
             controller: 'projectCreateCtrl as vm'

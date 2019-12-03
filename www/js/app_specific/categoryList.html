@@ -5,16 +5,16 @@
 
         <div class="list">
             <ion-list class="item item-button-right">
-                <ionitem ng-repeat="category in vm.categories">
+                <ion-item ng-repeat="category in vm.categories" >
                     {{category.name}}
-                    <button class="button button-positive">Delete</button>
-                </ionitem>
+                    <button class="button button-positive" ng-click="vm.deleteCategory(category.id)">Delete</button>
+                </ion-item>
             </ion-list>
             <div class="item item-input-inset">
                 <label class="item item-input-wrapper ">
-                    <input type="text">
+                    <input type="text" ng-model="vm.newCategory.name">
                 </label>
-                <button class="button button-small" ng-click="vm.add()">Add</button>
+                <button class="button button-small" ng-click="vm.saveCategory()">Add</button>
             </div>
         </div>
 

@@ -28,9 +28,8 @@
                 }
             })
 
-            var params = $stateParams;
-            console.log("PARAMS",params);
 
+            var params=$stateParams;
             projectsSrvc.getProject(params.selected).then(
                 function successCallback(response) {
                     console.log(response.data[0]);

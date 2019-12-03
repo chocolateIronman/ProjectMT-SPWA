@@ -8,27 +8,56 @@
 
         control.$inject = [
             '$state',
-            //categorySrvc
+            'categorySrvc',
+            '$ionicHistory',
+            '$stateParams'
         ];
 
         function control(
             $state,
-            //categorySrvc
+            categorySrvc,
+            $ionicHistory,
+            $stateParams
         ) {
             var vm = angular.extend(this, {
-                categories : []
+                categories : [],
+                newCategory: {}
             });
 
             
+            categorySrvc.getCategories().then(
+                function successCallback(response) {
+                    console.log(response.data);
+
+                    vm.categories = response.data;
+                },
+                function errorCallback(response){
+                    console.error(response);
+                }
+            );
+
+            vm.deleteCategory = function(categoryID) {
+                console.log("DELETING CATEGORY");
+
+                categorySrvc.deleteCategory(categoryID).then(function(){
+                    console.log("Going now!");
+                    $state.reload();
+                })
+            }
+
+            
             
 
-            vm.add = function () {
-                console.log("ADDING CATEGORY!!!");
-                //TODO: Error Handling
-                //categorySrvc.createCategory().then(function(){
-                    //state.go('categoryList);
-                //});
-            };
+            vm.saveCategory = function () {
+                console.log("SAVING CATEGORY!");
+                console.table(vm.newCategory);
+                categorySrvc.createCategory(vm.newCategory).then(function(){
+                    $state.reload();
+                });
+            }
+            
+
+            return vm;
         }
     }
 )();
