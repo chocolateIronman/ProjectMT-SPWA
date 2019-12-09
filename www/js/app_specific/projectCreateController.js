@@ -101,10 +101,6 @@
                 console.log("SAVING CATEGORY!");
                 console.table(vm.newCategory);
                 categorySrvc.createCategory(vm.newCategory).then(function(){
-                   
-                    
-
-
                     categorySrvc.getCategories().then(
                         function successCallback(response) {
                             console.log(response.data);
@@ -125,12 +121,6 @@
                             console.error(response);
                         }
                     );
-
-
-
-
-
-
                 });
             }
 

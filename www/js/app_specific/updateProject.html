@@ -10,13 +10,6 @@
                     <span class="input-label">Name</span>
                     <input type="text" ng-model="vm.newProject.ProjectName" placeholder="{{vm.project.ProjectName}}">
                 </label>
-                <div class="item item-input-inset">
-                    <label class="item item-input-wrapper item-stacked-label">
-                        <span class="input-label">Category</span>
-                        <input type="text" ng-model="vm.newProject.ProjectCategory" placeholder="{{vm.project.name}}">
-                    </label>
-                    <button class="button button-small">Add</button>
-                </div>
                 <label class="item item-input item-stacked-label">
                     <span class="input-label">Start Date</span>
                     <input type="number" ng-model="vm.newProject.StartDate" placeholder="{{vm.project.StartDate}}">
@@ -37,7 +30,22 @@
                     <span class="input-label">Notes</span>
                     <input type="text" ng-model="vm.newProject.Notes" placeholder="{{vm.project.Notes}}">
                 </label>
+                <ion-item>
+                    <span class="input-label">Category</span>
+                    <label class="item item-input">
+                        <i class="icon ion-search placeholder-icon"></i>
+                        <input id="categorySearchInput" type="text" placeholder="Search" ng-model="vm.newCategory.name">
+                        
+                    </label>
+                    <button class="button button-small button-positive" ng-show="vm.showAddButton" ng-click="vm.saveCategory()">Add</button>
+                </ion-item>
+                <div class="list list-inset">
+                    <ion-item ng-repeat="category in vm.displayCategories " ng-click="vm.onItemSelected($index)">
+                        <h2>{{category.name}}</h2>
+                    </ion-item>
+                </div>
             </div>
+
             <div>
                 <button class="button button-positive" ng-click='vm.updateProject()'>Save</button>
             </div>
