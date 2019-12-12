@@ -24,10 +24,10 @@
             });
 
             var projectid=$stateParams.projectID;
-            vm.newTask.ProjectID=projectid;
+            vm.newTask.projectID=projectid;
             console.log($stateParams);
             console.log("ProjectID = " +projectid);
-            
+            vm.newTask.EndDate = 0;
 
             vm.saveTask = function () {
                 console.log("SAVING TASK!!!");

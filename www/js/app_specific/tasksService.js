@@ -19,7 +19,7 @@
         var service = {}; //declare an object to hold all the functions
         service.tasks = []; //declare the local array for tasks
 
-        service.createTask = function createTask(task,projectID){
+        service.createTask = function createTask(task){
             return ($http({
                 method: 'POST',
                 url: 'http://localhost:8080/projectTasks',
