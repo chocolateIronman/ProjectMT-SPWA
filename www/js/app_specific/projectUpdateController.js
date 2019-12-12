@@ -139,7 +139,7 @@
                 console.log("UPDATING PROJECT with",vm.newProject);
                 Object.getOwnPropertyNames(vm.project).forEach(function(key){
                     if(vm.newProject[key]==null){
-                        //console.log("key= "+key);
+                        console.log("key= "+key);
                         if (key=="id") {
                             //vm.newProject.ProjectID=vm.project[key];
                         }else{
