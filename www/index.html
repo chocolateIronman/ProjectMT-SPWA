@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <title>ProjectMT-App</title>
 
-    <link rel="manifest" href="manifest.json">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <title>ProjectMT-App</title>
 
-    <!-- un-comment this code to enable service worker
+  <link rel="manifest" href="manifest.json">
+
+  <!-- un-comment this code to enable service worker
     <script>
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('service-worker.js')
@@ -16,65 +17,75 @@
       }
     </script>-->
 
-    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+  <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
 
-    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+  <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
 
-    <!-- ionic/angularjs js -->
-    <script src="lib/ionic/js/ionic.bundle.js"></script>
+  <!-- ionic/angularjs js -->
+  <script src="lib/ionic/js/ionic.bundle.js"></script>
 
-    <!-- cordova script (this will be a 404 during development) -->
-    <script src="cordova.js"></script>
+  <!-- cordova script (this will be a 404 during development) -->
+  <script src="cordova.js"></script>
 
-    <!-- your app's js -->
-    <script src="js/app.js"></script>
 
-    <!-- ADDED START -->
-    <!--Load stuff that angular left out. -->
-    
-    <script src="js/app_specific/mainViewModule.js"></script>
-    <script src="js/app_specific/mainViewController.js"></script>
 
-    
-    <script src="js/app_specific/projectsModule.js"></script>
-    <script src="js/app_specific/projectsService.js"></script>
-    <script src="js/app_specific/projectsListController.js"></script>
-    <script src="js/app_specific/projectViewController.js"></script>
-    <script src="js/app_specific/projectCreateController.js"></script>
-    <script src="js/app_specific/projectUpdateController.js"></script>
-    
-   
+  <!-- your app's js -->
+  <script src="js/app.js"></script>
 
-    <script src="js/app_specific/tasksModule.js"></script>
-    <script src="js/app_specific/tasksService.js"></script>
-    <script src="js/app_specific/tasksListController.js"></script>
-    <script src="js/app_specific/taskViewController.js"></script>
-    <script src="js/app_specific/taskCreateController.js"></script>
-    <script src="js/app_specific/taskUpdateController.js"></script>
 
-    <script src="js/app_specific/categoryModule.js"></script>
-    <script src="js/app_specific/categorySrvc.js"></script>
-    <script src="js/app_specific/categoryListController.js"></script>
 
-    
+  <!-- ADDED START -->
+  <!--Load stuff that angular left out. -->
 
-    
+  <!--moment/angular-moment js-->
+  <script src="lib/external/js/angular_moment/moment.min.js"></script>
+  <script src="lib/external/js/angular_moment/angular-moment.min.js"></script>
+  
 
-    
-    <!--ADDED END -->
+  <script src="js/app_specific/mainViewModule.js"></script>
+  <script src="js/app_specific/mainViewController.js"></script>
 
-  </head>
- 
-  <body ng-app="starter">
-    <!--ADDED START -->
-    <ion-nav-bar class="bar-calm" align-title="center">
-      <ion-nav-back-button></ion-nav-back-button>
-    </ion-nav-bar>
-    <ion-nav-view animation="slide-left-right">
-    </ion-nav-view>
-    <!-- ADDED END -->
-  </body>
+
+  <script src="js/app_specific/projectsModule.js"></script>
+  <script src="js/app_specific/projectsService.js"></script>
+  <script src="js/app_specific/projectsListController.js"></script>
+  <script src="js/app_specific/projectViewController.js"></script>
+  <script src="js/app_specific/projectCreateController.js"></script>
+  <script src="js/app_specific/projectUpdateController.js"></script>
+
+
+
+  <script src="js/app_specific/tasksModule.js"></script>
+  <script src="js/app_specific/tasksService.js"></script>
+  <script src="js/app_specific/tasksListController.js"></script>
+  <script src="js/app_specific/taskViewController.js"></script>
+  <script src="js/app_specific/taskCreateController.js"></script>
+  <script src="js/app_specific/taskUpdateController.js"></script>
+
+  <script src="js/app_specific/categoryModule.js"></script>
+  <script src="js/app_specific/categorySrvc.js"></script>
+  <script src="js/app_specific/categoryListController.js"></script>
+
+
+
+
+
+
+  <!--ADDED END -->
+
+</head>
+
+<body ng-app="starter">
+  <!--ADDED START -->
+  <ion-nav-bar class="bar-calm" align-title="center">
+    <ion-nav-back-button></ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-nav-view animation="slide-left-right">
+  </ion-nav-view>
+  <!-- ADDED END -->
+</body>
+
 </html>

@@ -5,6 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 angular.module('starter', [
   'ionic',
+  'angularMoment',
   'projectsjs',
   'tasksjs',
   'categoryjs',
@@ -30,3 +31,4 @@ angular.module('starter', [
     }
   });
 })
+

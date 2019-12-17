@@ -11,7 +11,8 @@
             '$stateParams',
             'projectsSrvc',
             'categorySrvc',
-            '$scope'
+            '$scope',
+            'moment'
         ];
 
         function control(
@@ -19,7 +20,8 @@
             $stateParams,
             projectsSrvc,
             categorySrvc,
-            $scope
+            $scope,
+            moment
             
         ) {
             var vm = angular.extend(this, {
@@ -29,7 +31,9 @@
                 categories: [],
                 displayCategories:[],
                 showAddButton:false,
-                newCategory: {}
+                newCategory: {},
+                startDateHolder: Date(),
+                endDateHolder: Date()
             
 
                 
@@ -124,16 +128,23 @@
                 });
             }
 
-            vm.test= function(){
+            /* vm.test= function(){
                 console.alert("TESTING");
-            }
+            } */
 
             vm.saveProject = function () {
                 console.log("SAVING PROJECT!!!");
+
+                vm.newProject.StartDate=moment(vm.startDateHolder,"DD/MM/YYYY").valueOf();
+                vm.newProject.EndDate=moment(vm.endDateHolder,"DD/MM/YYYY").valueOf();
+
                 console.table(vm.newProject);
                 //TODO: Error Handling
-                projectsSrvc.createProject(vm.newProject).then(function(){
+                projectsSrvc.createProject(vm.newProject).then(function success(){
                     $state.go('projectsList');
+                },
+                function error(err){
+                    console.log(err);
                 });
             };
 

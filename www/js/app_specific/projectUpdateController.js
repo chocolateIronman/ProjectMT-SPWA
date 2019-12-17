@@ -11,7 +11,8 @@
             '$stateParams',
             'projectsSrvc',
             'categorySrvc',
-            '$scope'
+            '$scope',
+            'moment'
         ];
 
         function control(
@@ -19,14 +20,15 @@
             $stateParams,
             projectsSrvc,
             categorySrvc,
-            $scope
+            $scope,
+            moment
         ) {
             var vm = angular.extend(this, {
                 project : {
                     name: "no name",
                     category: "no category",
-                    startDate: "start date",
-                    endDate: "end date",
+                    startDate: "0",
+                    endDate: "0",
                     year: "no year",
                     notes: "no notes"
                 },
@@ -35,7 +37,9 @@
                 categories: [],
                 displayCategories: [],
                 showAddButton: false,
-                newCategory: {}
+                newCategory: {},
+                startDateHolder: Date(),
+                endDateHolder: Date()
             });
            
             var projectid=$stateParams.projectID;
@@ -47,6 +51,9 @@
                     console.log(response.data[0]);
 
                     vm.project = response.data[0];
+                    /* console.log(response.data[0].EndDate);*/
+                    //vm.project.EndDate=(parseInt(response.data[0].EndDate));
+                   
                     
                     // this callback will be called asynchronously
                     // when the response is available
@@ -134,9 +141,20 @@
                     );
                 });
             }
-
+            
+                
             vm.updateProject = function () {
+                vm.newProject.StartDate=moment(vm.startDateHolder,"DD/MM/YYYY").valueOf();
+                if(isNaN(vm.newProject.StartDate)){
+                    vm.newProject.StartDate=parseInt(vm.project.StartDate);
+                }
+                vm.newProject.EndDate=moment(vm.endDateHolder,"DD/MM/YYYY").valueOf();
+                if(isNaN(vm.newProject.EndDate))
+                {
+                    vm.newProject.EndDate=parseInt(vm.project.EndDate);
+                }
                 console.log("UPDATING PROJECT with",vm.newProject);
+               
                 Object.getOwnPropertyNames(vm.project).forEach(function(key){
                     if(vm.newProject[key]==null){
                         console.log("key= "+key);
@@ -146,8 +164,9 @@
                         vm.newProject[key]=vm.project[key];
                         }
                     }
+                    
                 })
-
+                
 
                 if (vm.newProject.ProjectCategory == null || vm.newProject.ProjectCategory == undefined) {
                     var foundID;

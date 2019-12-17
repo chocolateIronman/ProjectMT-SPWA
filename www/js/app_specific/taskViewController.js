@@ -9,13 +9,15 @@
         control.$inject = [
             '$state',
             '$stateParams',
-            'tasksSrvc'
+            'tasksSrvc',
+            'moment'
         ];
 
         function control(
             $state,
             $stateParams,
-            tasksSrvc
+            tasksSrvc,
+            moment
         ) {
             var vm = angular.extend(this, {
                 task : {
@@ -36,6 +38,9 @@
                     console.log(response.data[0]);
 
                     vm.task = response.data[0];
+                    vm.task.StartDate=moment(parseInt(response.data[0].StartDate)).format("DD/MM/YYYY");
+                    vm.task.DueDate=moment(parseInt(response.data[0].DueDate)).format("DD/MM/YYYY");
+                    vm.task.EndDate=moment(parseInt(response.data[0].EndDate)).format("DD/MM/YYYY");
                 },
                 function errorCallback(response) {
                     console.error(response);

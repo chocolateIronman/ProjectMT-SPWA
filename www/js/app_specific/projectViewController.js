@@ -9,13 +9,15 @@
         control.$inject = [
             '$state',
             '$stateParams',
-            'projectsSrvc'
+            'projectsSrvc',
+            'moment'
         ];
 
         function control(
             $state,
             $stateParams,
-            projectsSrvc
+            projectsSrvc,
+            moment
         ) {
             var vm = angular.extend(this, {
                 project : {
@@ -35,6 +37,8 @@
                     console.log(response.data[0]);
 
                     vm.project = response.data[0];
+                    vm.project.StartDate=moment(parseInt(response.data[0].StartDate)).format("DD/MM/YYYY");
+                    vm.project.EndDate=moment(parseInt(response.data[0].EndDate)).format("DD/MM/YYYY");
                     
                     // this callback will be called asynchronously
                     // when the response is available

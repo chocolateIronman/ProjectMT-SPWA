@@ -1,61 +1,56 @@
 <ion-view view-title="ProjectMT">
-        
-        <div class="bar bar-subheader">
-             <h2 class="title">Create Project</h2>
-        </div>
-       
-        <ion-content class="has-subheader ">
-    
-            <div class="list">
-                <label class="item item-input item-stacked-label">
-                    <span class="input-label">Name</span>
-                    <input type="text" ng-model="vm.newProject.ProjectName">
+
+    <div class="bar bar-subheader">
+        <h2 class="title">Create Project</h2>
+    </div>
+
+    <ion-content class="has-subheader ">
+
+        <div class="list">
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Name</span>
+                <input type="text" ng-model="vm.newProject.ProjectName" required>
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Start Date</span>
+                <input type="date" placeholder="dd/mm/yyyy" ng-model="vm.startDateHolder" required>
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">End Date</span>
+                <input type="date" placeholder="dd/mm/yyyy" ng-model="vm.endDateHolder" required>
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Year</span>
+                <input type="number" ng-model="vm.newProject.ProjectYear" required>
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Group Name</span>
+                <input type="text" ng-model="vm.newProject.GroupName" required>
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Notes</span>
+                <input type="text" ng-model="vm.newProject.Notes" required>
+            </label>
+
+            <ion-item>
+                <label class="item item-input">
+                    <i class="icon ion-search placeholder-icon"></i>
+                    <input id="categorySearchInput" type="text" placeholder="Search" ng-model="vm.newCategory.name" required>
+
                 </label>
-                <label class="item item-input item-stacked-label">
-                    <span class="input-label">Start Date</span>
-                    <input type="number" ng-model="vm.newProject.StartDate">
-                </label>
-                <label class="item item-input item-stacked-label">
-                    <span class="input-label">End Date</span>
-                    <input type="number" ng-model="vm.newProject.EndDate">
-                </label>
-                <label class="item item-input item-stacked-label">
-                    <span class="input-label">Year</span>
-                    <input type="number" ng-model="vm.newProject.ProjectYear"></input>
-                </label>
-                <label class="item item-input item-stacked-label">
-                    <span class="input-label">Group Name</span>
-                    <input type="text" ng-model="vm.newProject.GroupName"> 
-                </label>
-                <label class="item item-input item-stacked-label">
-                    <span class="input-label">Notes</span>
-                    <input type="text" ng-model="vm.newProject.Notes">
-                </label>
-               
-                <ion-item>
-                    <label class="item item-input">
-                        <i class="icon ion-search placeholder-icon"></i>
-                        <input id="categorySearchInput" type="text" placeholder="Search" ng-model="vm.newCategory.name">
-                        
-                    </label>
-                    <button class="button button-small button-positive" ng-show="vm.showAddButton" ng-click="vm.saveCategory()">Add</button>
+                <button class="button button-small button-positive" ng-show="vm.showAddButton"
+                    ng-click="vm.saveCategory()">Add</button>
+            </ion-item>
+            <div class="list list-inset">
+                <ion-item ng-repeat="category in vm.displayCategories " ng-click="vm.onItemSelected($index)">
+                    <h2>{{category.name}}</h2>
                 </ion-item>
-                <div class="list list-inset">
-                    <ion-item ng-repeat="category in vm.displayCategories " ng-click="vm.onItemSelected($index)">
-                        <h2>{{category.name}}</h2>
-                    </ion-item>
-                </div>
-                   
-                    
-                    
-                </div>
-                
-                
             </div>
-            <div>
-                <button class="button button-positive" ng-click='vm.saveProject()'>Save</button>
-            </div>
-    
-            
-        </ion-content>
+        </div>
+        <div>
+            <button class="button button-positive" ng-click='vm.saveProject()'>Save</button>
+        </div>
+
+
+    </ion-content>
 </ion-view>

@@ -9,18 +9,22 @@
         control.$inject = [
             '$state',
             '$stateParams',
-            'tasksSrvc'
+            'tasksSrvc',
+            'moment'
         ];
 
         function control(
             $state,
             $stateParams,
-            tasksSrvc
+            tasksSrvc,
+            moment
         ) {
             var vm = angular.extend(this, {
                 newTask:{
                     
-                }
+                },
+                startDateHolder: Date(),
+                dueDateHolder: Date()
             });
 
             var projectid=$stateParams.projectID;
@@ -28,9 +32,12 @@
             console.log($stateParams);
             console.log("ProjectID = " +projectid);
             vm.newTask.EndDate = 0;
+            
 
             vm.saveTask = function () {
                 console.log("SAVING TASK!!!");
+                vm.newTask.StartDate=moment(vm.startDateHolder,"DD/MM/YYYY").valueOf();
+                vm.newTask.DueDate=moment(vm.dueDateHolder,"DD/MM/YYYY").valueOf();
                 console.table(vm.newTask);
                 //TODO: Error Handling
                 tasksSrvc.createTask(vm.newTask).then(function(){

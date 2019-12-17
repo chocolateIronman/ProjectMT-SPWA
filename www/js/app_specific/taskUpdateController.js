@@ -26,7 +26,10 @@
                     notes: "no notes"
                 },
 
-                newTask : {}
+                newTask : {},
+                startDateHolder: Date(),
+                dueDateHolder: Date(),
+                endDateHolder: Date()
             });
 
             var taskid=$stateParams.taskID;
@@ -43,6 +46,18 @@
             );
 
             vm.updateTask = function(){
+                vm.newTask.StartDate=moment(vm.startDateHolder,"DD/MM/YYYY").valueOf();
+                if(isNaN(vm.newTask.StartDate)){
+                    vm.newTask.StartDate=parseInt(vm.task.StartDate);
+                }
+                vm.newTask.DueDate=moment(vm.dueDateHolder,"DD/MM/YYYY").valueOf();
+                if(isNaN(vm.newTask.DueDate)){
+                    vm.newTask.DueDate=parseInt(vm.task.DueDate);
+                }
+                vm.newTask.EndDate=moment(vm.endDateHolder,"DD/MM/YYYY").valueOf();
+                if(isNaN(vm.newTask.EndDate)){
+                    vm.newTask.EndDate=parseInt(vm.task.EndDate);
+                }
                 console.log("UPDATING TASK with", vm.newTask);
                 Object.getOwnPropertyNames(vm.task).forEach(function(key){
                     if(vm.newTask[key]==null){
