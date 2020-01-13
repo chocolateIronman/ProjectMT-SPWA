@@ -1,0 +1,16 @@
+<ion-view view-title="ProjectMT">
+
+        <div class="bar bar-subheader">
+                <h2 class="title">Create Project</h2>
+            </div>
+        
+            <ion-content class="has-subheader ">
+        <div ng-hide="vm.isLoggedIn">Press Button to Log In
+            <button class="button button-calm" ng-click="vm.login()">Log In</button>
+        </div>
+        <div ng-show="vm.isLoggedIn">Press Button to Log Out
+            <button class="button button-calm" ng-click="vm.logout()">Log Out</button>
+        </div>
+    </ion-content>
+
+</ion-view>

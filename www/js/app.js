@@ -9,7 +9,8 @@ angular.module('starter', [
   'projectsjs',
   'tasksjs',
   'categoryjs',
-  'mainviewjs'
+  'mainviewjs',
+  'authjs'
 ])
 
 .run(function($ionicPlatform) {
