@@ -15,7 +15,7 @@
                 domain: "projectmt.eu.auth0.com",
                 responseType: 'token id_token',
                 redirectShort:"http://localhost/callback",
-                redirectUri:"https://chocolateIronman.github.io/ProjectMT-SPWA/admin/auth",
+                redirectUri:"https://chocolateironman.github.io/ProjectMT-SPWA/admin/auth",
                 scopes:"admin",
                 authServiceUri:"https://projectmt.eu.auth0.com/authorize"
             };
