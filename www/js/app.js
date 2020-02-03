@@ -23,6 +23,7 @@ angular.module('starter', [
     // to interact with the app.
     if (window.cordova && window.Keyboard) {
       window.Keyboard.hideKeyboardAccessoryBar(true);
+      //cordova.plugins.Keyboard.hideKeyboardAccessoryBar (true);
     }
 
     if (window.StatusBar) {

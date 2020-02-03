@@ -4,7 +4,7 @@
 
         const module = angular.module('mainviewjs', []);
 
-        module.config(function($stateProvider,$urlRouterProvider) {
+        module.config(function($stateProvider,) {
 
             $stateProvider.state('mainView', {
                 cache: false,
@@ -13,7 +13,7 @@
                 controller: 'mainViewCtrl as vm'
             });
 
-            $urlRouterProvider.otherwise('mainView');
+            
         });
     }
 )();
