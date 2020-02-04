@@ -23,7 +23,7 @@ angular.module('starter', [
     // to interact with the app.
     if (window.cordova && window.Keyboard) {
       window.Keyboard.hideKeyboardAccessoryBar(true);
-      //cordova.plugins.Keyboard.hideKeyboardAccessoryBar (true);
+      
     }
 
     if (window.StatusBar) {
@@ -31,6 +31,9 @@ angular.module('starter', [
       // remove the status bar on iOS or change it to use white instead of dark colors.
       StatusBar.styleDefault();
     }
+
+    window.open=cordova.InAppBrowser.open;
+
   });
 })
 

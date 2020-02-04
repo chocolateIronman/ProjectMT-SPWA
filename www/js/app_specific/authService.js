@@ -14,17 +14,17 @@
     function authSrvc(
         $q,
         $timeout,
-        $credentialsSrvc
+        credentialsSrvc
     ) {
         var service = {};
         var expToken = 100000;//milliseconds to get stuff done before access token expires
 
         function doAuth(success, fail) {
-            var url = $credentialsSrvc.authServiceUri +
-                "?client_id=" + $credentialsSrvc.clientID +
-                "&scope=" + encodeURIComponent($credentialsSrvc.scopes) +
+            var url = credentialsSrvc.authServiceUri +
+                "?client_id=" + credentialsSrvc.clientID +
+                "&scope=" + encodeURIComponent(credentialsSrvc.scopes) +
                 "&response_type=token" +
-                "&redirect_uri=" + encodeURIComponent($credentialsSrvc.redirectUri);
+                "&redirect_uri=" + encodeURIComponent(credentialsSrvc.redirectUri);
 
             //Extract the auth token from URL:
             function getAuthInfoFromUrl(url) {
