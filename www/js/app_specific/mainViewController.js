@@ -4,23 +4,23 @@
 
         angular
             .module('mainviewjs')
-            .controller('mainViewCtrl',control);
+            .controller('mainViewCtrl', control);
 
         control.$inject = [
-            '$state'
+            '$state',
+            'authSrvc'
         ];
 
         function control(
-            $state
+            $state,
+            authSrvc
         ) {
             var vm = angular.extend(this, {
 
             });
 
-            vm.fun = function(){
-                $state.go('projectsList');
-            }
+            
         }
-       
+
     }
 )();

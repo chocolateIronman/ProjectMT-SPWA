@@ -8,23 +8,27 @@
     authSrvc.$inject = [
         '$q',
         '$timeout',
-        'credentialsSrvc'
+        'credentialsSrvc',
+        
     ];
 
     function authSrvc(
         $q,
         $timeout,
-        credentialsSrvc
+        credentialsSrvc,
+
     ) {
         var service = {};
+        
         var expToken = 100000;//milliseconds to get stuff done before access token expires
 
         function doAuth(success, fail) {
             var url = credentialsSrvc.authServiceUri +
-                "?client_id=" + credentialsSrvc.clientID +
-                "&scope=" + encodeURIComponent(credentialsSrvc.scopes) +
-                "&response_type=token" +
-                "&redirect_uri=" + encodeURIComponent(credentialsSrvc.redirectUri);
+                "?response_type=token" +
+                "&client_id=" + credentialsSrvc.clientID +
+                "&redirect_uri=" + credentialsSrvc.redirectUri +
+                "&scope="+credentialsSrvc.scopes +
+                "&audience="+credentialsSrvc.audience;
 
             //Extract the auth token from URL:
             function getAuthInfoFromUrl(url) {

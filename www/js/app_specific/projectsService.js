@@ -8,14 +8,16 @@
     projectsSrvc.$inject =[
         '$q', //promise service
         '$timeout', //timeout service
-        '$http'
+        '$http',
+        'authSrvc'
         // 'moment' //dates service
     ];
 
     function projectsSrvc(
         $q,
         $timeout,
-        $http
+        $http,
+        authSrvc
         // moment
     ) {
         
@@ -25,9 +27,11 @@
         service.createProject = function createProject(project){
             return ($http({
                 method: 'POST',
-                url: 'http://localhost:8080/project',
+                url: 'https://projectmt.herokuapp.com/project',
                 headers: {
-                    "Content-Type" : 'application/json'
+                    "Accept" : 'application/json',
+                    "Authorization" : 'Bearer ' + token
+                    
                 },
                 data: project
             }))
@@ -37,17 +41,24 @@
         service.getProjects = function getProjects(tutorID){
             return ($http({
                 method: 'GET',
-                url: 'http://localhost:8080/project',
-                params: {"tutorID":"0e3afd83-6fb5-459a-9bd1-66cc7f10c57a"}
+                url: 'https://projectmt.herokuapp.com/project',
+                params: {"tutorID":"39d5ff9a-6d31-4a76-8171-e93903d21d82"},
+                headers: {
+                    "Accept" : 'application/json',
+                    "Authorization" : 'Bearer ' + token
+                    
+                }
             }));
         }
 
         service.getProject = function getProject(projectID){
             return($http({
                 method: 'GET',
-                url: 'http://localhost:8080/project/'+projectID,
+                url: 'https://projectmt.herokuapp.com/project/'+projectID,
                 headers: {
-                    "Content-Type" : 'application/json'
+                    "Accept" : 'application/json',
+                    "Authorization" : 'Bearer ' + token
+                    
                 }
             }))
         }
@@ -55,9 +66,11 @@
         service.updateProject = function updateProject(project,projectID){
             return($http({
                 method: 'PUT',
-                url:'http://localhost:8080/project/'+projectID,
-                headers:{
-                    "Content-Type" : 'application/json'
+                url:'https://projectmt.herokuapp.com/project/'+projectID,
+                headers: {
+                    "Accept" : 'application/json',
+                    "Authorization" : 'Bearer ' + token
+                    
                 },
                 data: project
             }))
@@ -66,9 +79,11 @@
         service.deleteProject = function deleteProject(projectID){
             return($http({
                 method: 'DELETE',
-                url: 'http://localhost:8080/project/'+projectID,
+                url: 'https://projectmt.herokuapp.com/project/'+projectID,
                 headers: {
-                    "Content-Type" : 'application/json'
+                    "Accept" : 'application/json',
+                    "Authorization" : 'Bearer ' + token
+                    
                 }
             }))
         }
@@ -80,6 +95,12 @@
                 }
             }
         }
+
+        var token = null;
+        try{
+            var authInfo = authSrvc.getAuthInfo();
+            token = authInfo.access_token;
+        } catch(e){}
 
         return service;
     }

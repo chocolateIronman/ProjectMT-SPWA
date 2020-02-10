@@ -26,7 +26,7 @@
         ) {
             var vm = angular.extend(this, {
                 newProject:{
-                    tutor_id: "0e3afd83-6fb5-459a-9bd1-66cc7f10c57a"
+                    tutor_id: "39d5ff9a-6d31-4a76-8171-e93903d21d82"
                 },
                 categories: [],
                 displayCategories:[],

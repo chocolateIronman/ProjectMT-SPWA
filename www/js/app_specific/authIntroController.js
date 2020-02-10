@@ -1,10 +1,10 @@
 (
-    function() {
+    function () {
         'use strict';
 
         angular
             .module('authjs')
-            .controller('authIntroCtrl',control);
+            .controller('authIntroCtrl', control);
 
         control.$inject = [
             '$state',
@@ -19,18 +19,19 @@
 
             });
 
-            function update(){
-                vm.isLoggedIn=authSrvc.isAuthenticated();
+            function update() {
+                vm.isLoggedIn = authSrvc.isAuthenticated();
             }
 
-            vm.login = function(){
+            vm.login = function () {
                 authSrvc.authenticate().then(
-                    update,
+                    function success() {$state.go('mainView');},
                     update
                 );
+                
             }
 
-            vm.logout = function(){
+            vm.logout = function () {
                 authSrvc.clear();
                 update();
             }

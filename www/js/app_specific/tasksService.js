@@ -8,13 +8,15 @@
     tasksSrvc.$inject = [
         '$q', //promise service
         '$timeout', //timeout service
-        '$http'
+        '$http',
+        'authSrvc'
     ];
 
     function tasksSrvc(
         $q,
         $timeout,
-        $http
+        $http,
+        authSrvc
     ) {
         var service = {}; //declare an object to hold all the functions
         service.tasks = []; //declare the local array for tasks
@@ -22,9 +24,11 @@
         service.createTask = function createTask(task){
             return ($http({
                 method: 'POST',
-                url: 'http://localhost:8080/projectTasks',
+                url: 'https://projectmt.herokuapp.com/projectTasks',
                 headers: {
-                    "Content-Type" : 'application/json'
+                    "Accept" : 'application/json',
+                    "Authorization" : 'Bearer ' + token
+                    
                 },
                 data: task
             }))
@@ -33,9 +37,11 @@
         service.getTasks = function getTasks(projectID){
             return($http({
                 methid: 'GET',
-                url: 'http://localhost:8080/projectTasks?projectID='+projectID,
-                headers:{
-                    "Content-Type" : 'application/json'
+                url: 'https://projectmt.herokuapp.com/projectTasks?projectID='+projectID,
+                headers: {
+                    "Accept" : 'application/json',
+                    "Authorization" : 'Bearer ' + token
+                    
                 }
             }));
         }
@@ -43,9 +49,11 @@
         service.getTask = function getTask(taskID){
             return($http({
                 method: 'GET',
-                url: 'http://localhost:8080/projectTasks/'+taskID,
+                url: 'https://projectmt.herokuapp.com/projectTasks/'+taskID,
                 headers: {
-                    "Content-Type" : 'application/json'
+                    "Accept" : 'application/json',
+                    "Authorization" : 'Bearer ' + token
+                    
                 }
             }))
         }
@@ -53,9 +61,11 @@
         service.updateTask = function updateTask(task,taskID){
             return($http({
                 method: 'PUT',
-                url: 'http://localhost:8080/projectTasks/'+taskID,
+                url: 'https://projectmt.herokuapp.com/projectTasks/'+taskID,
                 headers: {
-                    "Content-Type" : 'application/json'
+                    "Accept" : 'application/json',
+                    "Authorization" : 'Bearer ' + token
+                    
                 },
                 data: task
             }))
@@ -64,9 +74,11 @@
         service.deleteTask = function deleteTask(taskID){
             return($http({
                 method: 'DELETE',
-                url: 'http://localhost:8080/projectTasks/'+taskID,
+                url: 'https://projectmt.herokuapp.com/projectTasks/'+taskID,
                 headers: {
-                    "Content-Type" : 'application/json'
+                    "Accept" : 'application/json',
+                    "Authorization" : 'Bearer ' + token
+                    
                 }
             }))
         }
@@ -78,6 +90,12 @@
                 }
             }
         }
+
+        var token = null;
+        try{
+            var authInfo = authSrvc.getAuthInfo();
+            token = authInfo.access_token;
+        } catch(e){}
 
         return service;
     }
