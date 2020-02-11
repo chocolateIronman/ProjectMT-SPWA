@@ -11,12 +11,13 @@
             <ion-list class="item item-button-right">
                 <ion-item ng-click="vm.onItemSelected($index)" ng-repeat="project in vm.projects">
                     {{project.ProjectName}}
-                    <button class="button button-positive" ui-sref="projectUpdate({projectID: project.id})">Edit</button>
-                    <button class="button button-positive" ng-click="vm.deleteProject(project.id)">Delete</button>
+                    <button class="button button-positive button-small" ui-sref="projectUpdate({projectID: project.id})">Edit</button>
+                    <button class="button button-positive button-small" ng-click="vm.deleteProject(project.id)">Delete</button>
                 </ion-item>
             </ion-list>
         </div>
 
+        
         <div ng-show="vm.noProjects()">
             <h1 class="dark">There are no existing projects!</h1>
             <h2 class="dark">Please use the + to add a new project!</h2>

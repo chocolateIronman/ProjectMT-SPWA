@@ -6,8 +6,8 @@
         <div class="list">
             <ion-list class="item item-button-right">
                 <ion-item ng-repeat="category in vm.categories" >
-                    {{category.name}}
-                    <button class="button button-positive" ng-click="vm.deleteCategory(category.id)">Delete</button>
+                    <p>{{category.name}}</p>
+                    <button class="button button-positive button-block" ng-click="vm.deleteCategory(category.id)">Delete</button>
                 </ion-item>
             </ion-list>
             <div class="item item-input-inset">
