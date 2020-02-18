@@ -24,12 +24,14 @@
                 newCategory: {}
             });
 
-            
+            vm.loading=true;
+
             categorySrvc.getCategories().then(
                 function successCallback(response) {
                     console.log(response.data);
 
                     vm.categories = response.data;
+                    vm.loading=false;
                 },
                 function errorCallback(response){
                     console.error(response);
@@ -41,6 +43,7 @@
 
                 categorySrvc.deleteCategory(categoryID).then(function(){
                     console.log("Going now!");
+                    vm.loading=false;
                     $state.reload();
                 })
             }
@@ -52,6 +55,7 @@
                 console.log("SAVING CATEGORY!");
                 console.table(vm.newCategory);
                 categorySrvc.createCategory(vm.newCategory).then(function(){
+                    vm.loading=false;
                     $state.reload();
                 });
             }

@@ -19,6 +19,8 @@
                 projects : []
             });
 
+            vm.loading=true;
+
             vm.onItemSelected = function(index){
                 console.log("Project index: "+ index);
                 //passing parameters into the new state
@@ -42,7 +44,7 @@
 
                     vm.projects = response.data;
 
-
+                    vm.loading=false;
                     
                     // this callback will be called asynchronously
                     // when the response is available

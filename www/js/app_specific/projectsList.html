@@ -7,7 +7,8 @@
 
     <ion-content>
 
-        <div class="list" ng-show="!vm.noProjects()">
+        <ion-spinner ng-show="vm.loading==true"></ion-spinner>
+        <div class="list" ng-show="!vm.noProjects()" ng-show="!vm.loading">
             <ion-list class="item item-button-right">
                 <ion-item ng-click="vm.onItemSelected($index)" ng-repeat="project in vm.projects">
                     {{project.ProjectName}}

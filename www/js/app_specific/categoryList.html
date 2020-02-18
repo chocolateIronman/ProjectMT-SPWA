@@ -2,8 +2,8 @@
 
    
     <ion-content >
-
-        <div class="list">
+        <ion-spinner ng-show="vm.loading==true"></ion-spinner>
+        <div class="list" ng-show="!vm.loading">
             <ion-list class="item item-button-right">
                 <ion-item ng-repeat="category in vm.categories" >
                     <p>{{category.name}}</p>
