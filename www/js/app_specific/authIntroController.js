@@ -8,12 +8,14 @@
 
         control.$inject = [
             '$state',
-            'authSrvc'
+            'authSrvc',
+            'tutorSrvc'
         ];
 
         function control(
             $state,
-            authSrvc
+            authSrvc,
+            tutorSrvc
         ) {
             var vm = angular.extend(this, {
 
@@ -25,10 +27,17 @@
 
             vm.login = function () {
                 authSrvc.authenticate().then(
-                    function success() {$state.go('mainView');},
+                    function success() {
+                        
+                        console.log(JSON.stringify(authSrvc.getAuthInfo(), null, 2));
+                        tutorSrvc.createTutor().then(
+                            function sucess() { 
+                                $state.go('mainView') 
+                             });
+                    },
                     update
                 );
-                
+
             }
 
             vm.logout = function () {

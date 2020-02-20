@@ -22,6 +22,7 @@
         service.tasks = []; //declare the local array for tasks
 
         service.createTask = function createTask(task){
+            var token=authSrvc.getAuthInfo().access_token;
             return ($http({
                 method: 'POST',
                 url: 'https://projectmt.herokuapp.com/projectTasks',
@@ -35,6 +36,7 @@
         }
 
         service.getTasks = function getTasks(projectID){
+            var token=authSrvc.getAuthInfo().access_token;
             return($http({
                 methid: 'GET',
                 url: 'https://projectmt.herokuapp.com/projectTasks?projectID='+projectID,
@@ -47,6 +49,7 @@
         }
 
         service.getTask = function getTask(taskID){
+            var token=authSrvc.getAuthInfo().access_token;
             return($http({
                 method: 'GET',
                 url: 'https://projectmt.herokuapp.com/projectTasks/'+taskID,
@@ -59,6 +62,7 @@
         }
 
         service.updateTask = function updateTask(task,taskID){
+            var token=authSrvc.getAuthInfo().access_token;
             return($http({
                 method: 'PUT',
                 url: 'https://projectmt.herokuapp.com/projectTasks/'+taskID,
@@ -72,6 +76,7 @@
         }
 
         service.deleteTask = function deleteTask(taskID){
+            var token=authSrvc.getAuthInfo().access_token;
             return($http({
                 method: 'DELETE',
                 url: 'https://projectmt.herokuapp.com/projectTasks/'+taskID,
@@ -91,11 +96,7 @@
             }
         }
 
-        var token = null;
-        try{
-            var authInfo = authSrvc.getAuthInfo();
-            token = authInfo.access_token;
-        } catch(e){}
+        
 
         return service;
     }

@@ -39,6 +39,7 @@
                     function (key, value) { return key === "" ? value : decodeURIComponent(value); }
                 );
                 return authInfo;
+                
             }
 
 
@@ -72,6 +73,7 @@
                     function (event) {
                         if ((event.url).startsWith(credentialsSrvc.redirectShort)) {
                             var authInfo = getAuthInfoFromUrl(event.url);
+                            
                             storeAuthInfo(authInfo);
                             ref.close();
                             success();

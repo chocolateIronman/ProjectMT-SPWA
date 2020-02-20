@@ -25,6 +25,7 @@
         service.projects = []; //declare the local array for projects
     
         service.createProject = function createProject(project){
+            var token=authSrvc.getAuthInfo().access_token;
             return ($http({
                 method: 'POST',
                 url: 'https://projectmt.herokuapp.com/project',
@@ -38,11 +39,12 @@
     
         }
     
-        service.getProjects = function getProjects(tutorID){
+        service.getProjects = function getProjects(){
+            var token=authSrvc.getAuthInfo().access_token;
             return ($http({
                 method: 'GET',
                 url: 'https://projectmt.herokuapp.com/project',
-                params: {"tutorID":"39d5ff9a-6d31-4a76-8171-e93903d21d82"},
+                
                 headers: {
                     "Accept" : 'application/json',
                     "Authorization" : 'Bearer ' + token
@@ -52,6 +54,7 @@
         }
 
         service.getProject = function getProject(projectID){
+            var token=authSrvc.getAuthInfo().access_token;
             return($http({
                 method: 'GET',
                 url: 'https://projectmt.herokuapp.com/project/'+projectID,
@@ -64,6 +67,7 @@
         }
 
         service.updateProject = function updateProject(project,projectID){
+            var token=authSrvc.getAuthInfo().access_token;
             return($http({
                 method: 'PUT',
                 url:'https://projectmt.herokuapp.com/project/'+projectID,
@@ -77,6 +81,7 @@
         }
 
         service.deleteProject = function deleteProject(projectID){
+            var token=authSrvc.getAuthInfo().access_token;
             return($http({
                 method: 'DELETE',
                 url: 'https://projectmt.herokuapp.com/project/'+projectID,
@@ -96,11 +101,7 @@
             }
         }
 
-        var token = null;
-        try{
-            var authInfo = authSrvc.getAuthInfo();
-            token = authInfo.access_token;
-        } catch(e){}
+        
 
         return service;
     }

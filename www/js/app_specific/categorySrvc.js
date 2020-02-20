@@ -22,6 +22,7 @@
         service.categories = []; //declare the local array for projects
 
         service.createCategory = function createcategory(category) {
+            var token=authSrvc.getAuthInfo().access_token;
             return ($http({
                 method: 'POST',
                 url: 'https://projectmt.herokuapp.com:443/projectCategory',
@@ -34,6 +35,7 @@
         }
 
         service.getCategories = function getCategories(){
+            var token=authSrvc.getAuthInfo().access_token;
             return ($http({
                 method: 'GET',
                 url: 'https://projectmt.herokuapp.com/projectCategory',
@@ -46,6 +48,7 @@
         }
 
         service.deleteCategory = function deleteCategory(categoryID){
+            var token=authSrvc.getAuthInfo().access_token;
             return($http({
                 method: 'DELETE',
                 url: 'https://projectmt.herokuapp.com/projectCategory/'+categoryID,
@@ -57,6 +60,7 @@
         }
 
         service.getCategory = function getCategory(categoryID){
+            var token=authSrvc.getAuthInfo().access_token;
             return($http({
                 method: 'GET',
                 url: 'https://projectmt.herokuapp.com/projectCategory/'+categoryID,
@@ -67,11 +71,7 @@
             }))
         }
 
-        var token = null;
-        try{
-            var authInfo = authSrvc.getAuthInfo();
-            token = authInfo.access_token;
-        } catch(e){}
+        
     
         return service;
     }
