@@ -30,14 +30,14 @@
                 }
             })
 
-
+            //get a specific project and its details based on the ID from the state parameters
             var params=$stateParams;
             projectsSrvc.getProject(params.selected).then(
                 function successCallback(response) {
                     console.log(response.data[0]);
 
                     vm.project = response.data[0];
-                    vm.project.StartDate=moment(parseInt(response.data[0].StartDate)).format("DD/MM/YYYY");
+                    vm.project.StartDate=moment(parseInt(response.data[0].StartDate)).format("DD/MM/YYYY");//convert the date from epoch to human readable
                     vm.project.EndDate=moment(parseInt(response.data[0].EndDate)).format("DD/MM/YYYY");
                     
                     // this callback will be called asynchronously
