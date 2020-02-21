@@ -28,7 +28,7 @@
                 newProject:{
                    
                 },
-                categories: [],
+                categories: [], 
                 displayCategories:[],
                 showAddButton:false,
                 newCategory: {},
@@ -38,7 +38,7 @@
 
                 
             });
-
+            //get all available categories
             categorySrvc.getCategories().then(
                 function successCallback(response) {
                     console.log(response.data);
@@ -51,7 +51,9 @@
                 }
             );
             
-            
+            //search through categories to select a category
+              //if category doesnt exist create new one and add its id to project
+              //if it exist select and add its id to project              
             vm.searchCategory = function searchCategory(input){
                 var tempCategory = [];
                 console.log("searching for"+input);
@@ -77,7 +79,7 @@
             }
 
             
-
+            //search
             document.getElementById('categorySearchInput').addEventListener('input',function(){
                 setTimeout(function() {
                     vm.displayCategories=vm.searchCategory(document.getElementById('categorySearchInput').value);
@@ -87,7 +89,7 @@
                     
             })
             
-            
+            //on selected category add to project
             vm.onItemSelected = function(index){
                 console.log("Category index: "+ index);
                 //passing parameters into the new state
@@ -100,7 +102,7 @@
                 
                 
             };
-
+            //save new category and add to project
             vm.saveCategory = function () {
                 console.log("SAVING CATEGORY!");
                 console.table(vm.newCategory);
@@ -131,7 +133,7 @@
             /* vm.test= function(){
                 console.alert("TESTING");
             } */
-
+            //save new  project
             vm.saveProject = function () {
                 console.log("SAVING PROJECT!!!");
 
