@@ -37,7 +37,7 @@
                 return vm.projects.length == 0;
             };
             
-
+            //get all existing projects
             projectsSrvc.getProjects().then(
                 function successCallback(response) {
                     console.log(response.data);
@@ -55,7 +55,7 @@
                     // or server returns response with an error status.
                 }
             );
-
+            //delete an exisiting project
             vm.deleteProject = function(projectID) {
                 
                 
@@ -63,7 +63,7 @@
                 console.log("DELETING PROJECT");
 
                 projectsSrvc.deleteProject(projectID).then(function(){
-                    $state.go('projectsList');
+                    $state.go('projectsList'); //update view
                 })
             }
 
