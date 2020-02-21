@@ -143,7 +143,7 @@
                 console.table(vm.newProject);
                 //TODO: Error Handling
                 projectsSrvc.createProject(vm.newProject).then(function success(){
-                    $state.go('projectsList');
+                    $state.go('projectsList'); //if project saved successfully go to project's details view
                 },
                 function error(err){
                     console.log(err);
