@@ -23,21 +23,21 @@
                 categories : [],
                 newCategory: {}
             });
-
+            //function for loading 
             vm.loading=true;
-
+            //getting all categories from the server (DB)
             categorySrvc.getCategories().then(
                 function successCallback(response) {
                     console.log(response.data);
 
                     vm.categories = response.data;
-                    vm.loading=false;
+                    vm.loading=false; //if there are categories stop loading
                 },
-                function errorCallback(response){
+                function errorCallback(response){ //error function
                     console.error(response);
                 }
             );
-
+            //deleting a category from the app and the server (DB)
             vm.deleteCategory = function(categoryID) {
                 console.log("DELETING CATEGORY");
 
@@ -50,7 +50,7 @@
 
             
             
-
+            //adding a new category 
             vm.saveCategory = function () {
                 console.log("SAVING CATEGORY!");
                 console.table(vm.newCategory);
