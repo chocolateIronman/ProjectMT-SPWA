@@ -41,11 +41,11 @@
                 startDateHolder: Date(),
                 endDateHolder: Date()
             });
-           
+           //get the project ID from the state parameters
             var projectid=$stateParams.projectID;
 
             console.log("ProjectID " + projectid);
-
+            //get a project based on the ID specified
             projectsSrvc.getProject(projectid).then(
                 function successCallback(response) {
                     console.log(response.data[0]);
@@ -64,7 +64,7 @@
                     // or server returns response with an error status.
                 }
             );
-        
+            //get all categories
             categorySrvc.getCategories().then(
                 function successCallback(response) {
                     console.log(response.data);
@@ -75,7 +75,7 @@
                     console.error(response);
                 }
             );
-
+            //search through the categories
             vm.searchCategory = function searchCategory(input){
                 var tempCategory = [];
                 console.log("Searching for "+input);
@@ -99,7 +99,7 @@
                     return tempCategory;
                 }
             }
-
+            //search
             document.getElementById('categorySearchInput').addEventListener('input',function(){
                 setTimeout(function() {
                     vm.displayCategories=vm.searchCategory(document.getElementById('categorySearchInput').value);
@@ -107,7 +107,7 @@
                     $scope.$apply();
                 },0);
             })
-
+           //on category selected add it to the new project version
             vm.onItemSelected = function(index){
                 console.log("Category index: "+index);
                 var categoryId = vm.displayCategories[index].id;
@@ -115,7 +115,7 @@
                 vm.newProject.ProjectCategory=categoryId;
                 console.log(vm.newProject.ProjectCategory);
             }
-
+            //if category deosnt exist save it and add it to the new project version
             vm.saveCategory = function () {
                 console.log("SAVING CATEGORY!");
                 console.table(vm.newCategory);
@@ -142,9 +142,9 @@
                 });
             }
             
-                
+                //update project
             vm.updateProject = function () {
-                vm.newProject.StartDate=moment(vm.startDateHolder,"DD/MM/YYYY").valueOf();
+                vm.newProject.StartDate=moment(vm.startDateHolder,"DD/MM/YYYY").valueOf(); //converting the date to epoch time
                 if(isNaN(vm.newProject.StartDate)){
                     vm.newProject.StartDate=parseInt(vm.project.StartDate);
                 }
@@ -154,7 +154,7 @@
                     vm.newProject.EndDate=parseInt(vm.project.EndDate);
                 }
                 console.log("UPDATING PROJECT with",vm.newProject);
-               
+               //if some data left blank fill it up with old data
                 Object.getOwnPropertyNames(vm.project).forEach(function(key){
                     if(vm.newProject[key]==null){
                         console.log("key= "+key);
@@ -221,7 +221,7 @@
                     console.log("update formatting", vm.newProject);
                     projectsSrvc.updateProject(vm.newProject, projectid).then(function success() {
                         console.log("leaving now")
-                        $state.go('projectView', { selected: projectid });
+                        $state.go('projectView', { selected: projectid }); //if update sucessfull go to project's deatils view
                     },
                         function error(err) {
                             console.log(err);
